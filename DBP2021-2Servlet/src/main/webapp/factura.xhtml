@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>Factura</h:head>
+<style type="text/css">
+	form label{
+	display: block;
+	}
+</style>
+
+
+<body> 
+<h1>Calcula factura</h1>
+<form action="servletfactura" method="post">
+	<label>Cliente</label>
+	<input type="text" name="nombre"/>
+	<input type="text" name="apellido"/>
+	
+	<label>Subtotal</label>
+		<input type="text" name="subtotal"/>
+		
+	<label>Porcentaje Iva</label>
+		<input type="text" name="porcentajeIva"/>
+		
+	<button type="submit">guardar</button>
+
+</form>
+
+</body> 
+</html>
