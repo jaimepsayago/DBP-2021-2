@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>JSF Bootstrap Ejemplo Bean</h:head> 
+<body> 
+ <table>
+ 	<thead>
+ 	 <tr>
+ 	 	<th>FirstName</th>
+ 	 	<th>LastName</th>
+ 	 	<th>Direction</th>
+ 	 </tr>
+ 	</thead>
+ 	<tbody>
+ 		<tr>
+	 		<td>
+	 			<h:outputText value="#{studentBean.nombre}"></h:outputText>
+	 			<h:outputText value="#{studentBean.apellido}"></h:outputText>
+	 		</td>	
+	 		<td>
+	 			<h:outputText value="#{studentBean.apellido}"></h:outputText>
+	 		</td>
+	 		<td>
+	 			<a href="#"></a>
+	 		</td>
+	 		
+ 		</tr>
+ 	
+ 	</tbody>
+ </table>
+
+</body> 
+</html>

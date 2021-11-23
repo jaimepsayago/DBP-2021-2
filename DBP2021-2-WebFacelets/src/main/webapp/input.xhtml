@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<h:head>JSF sin bootstrap</h:head> 
+<body> 
+	<h:form id="studentForm">
+		<div>
+			<h:outputLabel value="First Name" />
+			<div>
+			<h:inputText value="#{studentBean.nombre}" />
+			</div>
+		</div>
+		<div>
+			<h:outputLabel value="Last Name" />
+			<div>
+			<h:inputText value="#{studentBean.apellido}" />
+			</div>
+		</div>
+		<div>
+			<h:outputLabel value="Direction" />
+			<div>
+				<h:inputText value="#{studentBean.direccion}" />
+			</div>
+		</div>
+		<div>
+			<div>
+			 <h:commandButton action="#{studentBean.studentData}" value="Creation" />
+			</div>
+		</div>
+		
+	
+	</h:form>
+
+</body> 
+</html>
