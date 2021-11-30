@@ -4,7 +4,8 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-
+<h:head>JSF Bootstrap Ejemplo Bean</h:head> 
+<h:body>
 <h:form>
     <div class="card">
         <p:dataTable var="product" value="#{dtBasicView.products}">
@@ -26,4 +27,62 @@
         </p:dataTable>
     </div>
 </h:form>
+
+<h:form>
+
+  <p:growl id="msg" showDetail="true" escape="false"/>
+ 
+
+    <div class="card">
+        <h5 style="margin-top: 0">Basic PickList</h5>
+        <p:pickList id="pickList" value="#{dtBasicView.cities}" var="cities" itemLabel="#{cities}" itemValue="#{cities}" showCheckbox="true">
+         <p:ajax event="select" listener="#{dtBasicView.onSelect}" update="msg"/>
+         </p:pickList>
+    </div>
+    
+
+</h:form>
+
+
+<h:form>
+
+<div class="p-field p-col-12 p-md-4">
+                <p:outputLabel value="Basic"/>
+                <p:selectOneMenu id="option" value="#{selectOneMenuView.selectedOption}">
+                    <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItem itemLabel="Option1" itemValue="Option1"/>
+                    <f:selectItem itemLabel="Option2" itemValue="Option2"/>
+                    <f:selectItem itemLabel="Option3" itemValue="Option3"/>
+                    <f:facet name="footer">
+                           <h:outputText value="3 options" style="font-weight:bold;"/>
+                    </f:facet>
+                </p:selectOneMenu>
+            </div>
+
+
+</h:form>
+
+
+<h:form>
+   <div class="p-field p-col-12 p-md-4">
+                <p:outputLabel for="@next" value="Editable"/>
+                <p:selectOneMenu id="city" value="#{dtBasicView.products}" effect="fold" editable="true">
+                    <f:selectItem itemLabel="Select One" itemValue=""/>
+                    <f:selectItems value="#{dtBasicView.products}"/>
+                </p:selectOneMenu>
+            </div>
+</h:form>
+
+
+	<p:selectOneMenu
+					value="" required="false">
+					<f:selectItem itemLabel="Seleccione un valor" itemValue="" />
+					<f:selectItems value="#{dtBasicView.productoArray}"  
+					itemValue="#{cargoController.provincia}">
+					</f:selectItems>
+				 <f:ajax event="change"  render="canton" />
+		</p:selectOneMenu>
+		
+
+</h:body> 
 </html>
