@@ -7,6 +7,9 @@
        
       <class>pucese.edu.web.Autor</class>
          <class>pucese.edu.web.Mensaje</class>
+         <class>pucese.edu.web.model.Canton</class>
+         <class>pucese.edu.web.model.Parroquia</class>
+         <class>pucese.edu.web.model.Provincia</class>
         <properties>
 
             <!-- JPA properties -->

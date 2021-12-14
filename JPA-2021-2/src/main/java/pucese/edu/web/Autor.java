@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,13 +18,13 @@ public class Autor {
 	
 	//id = primary key = campo que autogenere
 	@Id //esta anotacion crea un PK para el campo que estoy generando
-	@GeneratedValue //generar automaticamente los valores del campo
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //generar automaticamente los valores del campo
 	@Column(name="autor_id") //agrega un nombre a la columna
 	Long id; //la columna id = pk = autogenerada
 	
-	@Column(nullable = false) //las columnas no pueden ser nulas
+	@Column(nullable = true) //las columnas no pueden ser nulas
 	private String correo;
-	@Column(nullable = false) //las columnas no pueden ser nulas
+	@Column(nullable = true) //las columnas no pueden ser nulas
 	private String nombre;
 	
 	//constructor
@@ -33,7 +34,8 @@ public class Autor {
 	
 	//constructor
 	public Autor(String nombre, String correo) {
-		
+		this.nombre=nombre;
+		this.correo=correo;
 	}
 	
 	

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -12,11 +13,11 @@ import javax.persistence.ManyToOne;
 public class Mensaje {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "mensaje_id")
 	private Long id;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String texto;
 	private Date fecha;
 	
