@@ -16,6 +16,6 @@ public interface AbstractEntity extends Serializable {
 	 * y si no tiene dato retorna null
 	 * @return
 	 */
-		public Long getId();
+		public Number getId();
 	
 }

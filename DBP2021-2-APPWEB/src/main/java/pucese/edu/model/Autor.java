@@ -11,13 +11,12 @@ import java.util.List;
  */
 @Entity
 @NamedQuery(name="Autor.findAll", query="SELECT a FROM Autor a")
-public class Autor implements Serializable {
+public class Autor implements AbstractEntity  {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="autor_id")
-	private Long autorId;
+	private Long id;
 
 	private String correo;
 
@@ -30,12 +29,12 @@ public class Autor implements Serializable {
 	public Autor() {
 	}
 
-	public Long getAutorId() {
-		return this.autorId;
+	public Long getId() {
+		return this.id;
 	}
 
-	public void setAutorId(Long autorId) {
-		this.autorId = autorId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCorreo() {

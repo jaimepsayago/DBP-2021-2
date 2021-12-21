@@ -15,7 +15,7 @@ import pucese.edu.model.AbstractEntity;
 * JPA
 */
 
-public abstract class AbstractPersistence <T extends AbstractEntity, PK extends Long>  {
+public abstract class AbstractPersistence <T extends AbstractEntity, PK extends Number>  {
 	
 	/**
 	 * entidades genericas que vienen como parametros para los metodos crud

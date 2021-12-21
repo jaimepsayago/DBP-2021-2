@@ -16,8 +16,7 @@ public class Mensaje implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="mensaje_id")
-	private Long mensajeId;
+	private Long id;
 
 	private Timestamp fecha;
 
@@ -25,17 +24,18 @@ public class Mensaje implements Serializable {
 
 	//bi-directional many-to-one association to Autor
 	@ManyToOne
+	@JoinColumn(name="autor_autor_id")
 	private Autor autor;
 
 	public Mensaje() {
 	}
 
-	public Long getMensajeId() {
-		return this.mensajeId;
+	public Long getId() {
+		return this.id;
 	}
 
-	public void setMensajeId(Long mensajeId) {
-		this.mensajeId = mensajeId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Timestamp getFecha() {
