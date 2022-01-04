@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Editar Autor</title>
+<h:outputStylesheet name="css/bootstrap.css"></h:outputStylesheet>
+</h:head> 
+<body>
+<f:metadata>
+	<f:viewParam name="id" value="#{autorController.selectedAutor} ">
+		<f:event listener="#{autorController.editar()}" type="preRenderView"></f:event>
+	</f:viewParam>
+</f:metadata>
+
+	<h:form styleClass="form-horizontal">
+		<fieldset>
+			<legend>
+			<h:outputText value="Nuevo" />
+			</legend>
+	
+	<h:inputHidden value="#{autorController.autor.id}" />
+	
+		<h:outputLabel value="nombre" />
+		<h:inputText value="#{autorController.autor.nombre}" label="Nombre" required="true" styleClass="input-Large">
+		<f:validateLength minimum="5" maximum="60"></f:validateLength>
+		</h:inputText>
+		
+			<h:outputLabel value="correo" />
+		<h:inputText value="#{autorController.autor.correo}" label="Nombre" required="true" styleClass="input-Large">
+		</h:inputText>
+		
+		<p:commandButton value="Guardar"
+			action="listarAutorPrimefaces?faces-redirect=true"
+			actionListener="#{autorController.guardar()}"
+			styleClass="btn btn-success" onclick="dlg.show();" oncomplete="dlg.hide();"
+		 >
+		</p:commandButton>
+		
+		<p:button value="Cancelar" 
+		outcome="listarAutorPrimefaces" styleClass="btn" />
+		
+		<p:dialog id="dialog" header="Guardar" widgetVar="dlg" dynamic="true" modal="true">  
+	    	<h:outputText value="Guardar" />  
+		</p:dialog>
+		
+		
+		<p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+	</fieldset>
+</h:form>
+</body>
+</html>

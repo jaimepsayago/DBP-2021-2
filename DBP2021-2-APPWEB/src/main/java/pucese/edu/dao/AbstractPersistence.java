@@ -40,6 +40,11 @@ public abstract class AbstractPersistence <T extends AbstractEntity, PK extends 
 	public void remove(T entity) {
 		getEntityManager().remove(getEntityManager().merge(entity));
 	}
+	
+	public T findObject(T entity) {
+		return getEntityManager().find(entityClass,entity.getId());
+	
+	}
 
 	public T find(PK id) {
 		return getEntityManager().find(entityClass, id);

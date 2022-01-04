@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+<title>Listar Autores</title>
+<h:outputStylesheet name="css/bootstrap.css"></h:outputStylesheet>
+</h:head>
+<body>
+<h:form>
+	<p:growl id = "msgs" showDetail="true" skipDetailIfEqualsSummary="true"> </p:growl>
+	
+	<p:commandButton value="Nuevo" action="NuevoAutorPrimefaces.jsf"></p:commandButton>
+	
+	<div class="card">
+	<p:dataTable id="datatable" var="autor"  value="#{autorController.list}">
+	
+	<p:column headerText="Identificacion">
+		<h:outputText value="#{autor.id}" />
+	</p:column>
+	
+	<p:column headerText="Nombre">
+		<h:outputText value="#{autor.nombre}" />
+	</p:column>
+	
+	<p:column headerText="Correo">
+		<h:outputText value="#{autor.correo}" />
+	</p:column>
+	
+	
+	<p:column headerText="Operaciones">
+	
+		<p:toolbarGroup align="right">
+			<p:menuButton value="Operaciones">
+				<p:menuitem value="Editar" action="editarAutorPrimefaces.jsf">
+				<f:setPropertyActionListener value="#{autor}" target="#{autorController.selectedAutor}">
+				</f:setPropertyActionListener>
+				</p:menuitem>
+				
+				<p:menuitem value="Eliminar" action="listarAutorPrimefaces.jsf"
+				onclick="if (!confirm('esta seguro de eliminar esta fila?')) return false"
+				actionListener="#{autorController.remover}" update="datatable" ajax="true">
+				<f:attribute name="itemEliminar" value="#{autor.id}"/>
+				
+				</p:menuitem>
+				
+			</p:menuButton>
+		
+		</p:toolbarGroup>
+		
+		
+	</p:column>
+	
+	</p:dataTable>
+	
+	</div>
+
+</h:form>
+
+
+
+
+</body> 
+</html>
